@@ -6,26 +6,19 @@
         public double Val { get; }
         public double High { get; }
         public double Low { get; }
-        public double A { get; }
-        public string T { get; }
+        public double Delta { get; }
+        public string DateTime { get; }
 
-        public Sensor()
-        {
-        }
-
-        public Sensor(int index, double val, double high, double low, double a, string t)
+        public Sensor(int index, double val, double high, double low, double delta, string t)
         {
             Index = index;
             Val = val;
             High = high;
             Low = low;
-            A = a;
-            T = t;
+            Delta = delta;
+            DateTime = t;
         }
 
-        public override string ToString()
-        {
-            return $"Sensor{{index={Index}, val={Val}, high={High}, low={Low}, a={A}, t={T}}}";
-        }
+        public override string ToString() => $"Sensor{{Index={Index}, Value={Val}, High={High}, Low={Low}, Delta={Delta}, Time={DateTime}}}";
     }
 }

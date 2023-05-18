@@ -1,8 +1,8 @@
 ﻿namespace AparatLabs.Lab1;
 
-public static class CycleCheck
+public class CycleCheck
 {
-    public static void Main(string[] args)
+    public static void Main1(string[] args)
     {
         var highLimit = Enumerable.Range(0, 10)
             .Select(_ => new Random().NextDouble() * (100 - 60) + 60)//from 60 to 100
@@ -19,20 +19,20 @@ public static class CycleCheck
 
         for (var i = 1; i < 11; i++)
         {
-            var rand = (new Random().NextDouble() * ((highLimit[i - 1] + delta[i - 1]) - (lowLimit[i - 1] - delta[i - 1]))) + (lowLimit[i - 1] - new Random().NextDouble() * (5 + (-5)) + (-5));
+            var rand = new Random().NextDouble() * (highLimit[i - 1] + delta[i - 1] - (lowLimit[i - 1] - delta[i - 1])) + (lowLimit[i - 1] - new Random().NextDouble() * (5 + -5) + -5);
             var sensor = new Sensor(i, Math.Round(rand), highLimit[i - 1], lowLimit[i - 1], delta[i - 1], DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
             sensors.Add(sensor);
 
             var deltaXh = sensor.High - sensor.Val;
             var deltaXl = sensor.Low - sensor.Val;
 
-            //За в рамках дельти
+            //в рамках дельти
             if (deltaXh < 0 || deltaXl > 0)
             {
                 sensorsInfo.Insert(j, sensor);
                 j++;
                 //За рамки дельти
-                if (sensor.Val > (sensor.High + sensor.A) || sensor.Val < (sensor.Low - sensor.A))
+                if (sensor.Val > sensor.High + sensor.Delta || sensor.Val < sensor.Low - sensor.Delta)
                 {
                     var defaultColor = Console.ForegroundColor;
                     Console.ForegroundColor = ConsoleColor.DarkRed;
@@ -40,10 +40,9 @@ public static class CycleCheck
                     Console.ForegroundColor = defaultColor;
                 }
             }
-
         }
 
-        Console.WriteLine("Out of delta");
+        Console.WriteLine("Nicht gut sensors");
         while (j > 0)
         {
             Console.WriteLine(sensorsInfo[j - 1]);
