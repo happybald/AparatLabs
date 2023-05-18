@@ -4,12 +4,11 @@ namespace AparatLabs.Lab2;
 
 public class Program
 {
-    public static void Main(string[] args)
+    public static async Task Main(string[] args)
     {
-        Console.OutputEncoding = Encoding.UTF8;
+        Console.OutputEncoding = System.Text.Encoding.UTF8;
         Task1.Run();
-        Console.ReadLine();
-        Task2.Run();
+        await Task2.Run();
 
 
 //Chart
