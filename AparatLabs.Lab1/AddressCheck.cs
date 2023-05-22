@@ -58,8 +58,8 @@ public static class AddressCheck
 
         void CheckSensor(Sensor sensor)
         {
-            var deltaXh = sensor.High - sensor.Val;
-            var deltaXl = sensor.Low - sensor.Val;
+            var deltaXh = sensor.High - sensor.Value;
+            var deltaXl = sensor.Low - sensor.Value;
             Thread.Sleep(p[k - 1] * 1000);
             //в рамках дельти
             if (deltaXh < 0 || deltaXl > 0)
@@ -67,7 +67,7 @@ public static class AddressCheck
                 sensorsInfo.Add(j, sensor);
                 j++;
                 //За рамки дельти
-                if (sensor.Val > sensor.High + sensor.Delta || sensor.Val < sensor.Low - sensor.Delta)
+                if (sensor.Value > sensor.High + sensor.Delta || sensor.Value < sensor.Low - sensor.Delta)
                 {
                     var defaultColor = Console.ForegroundColor;
                     Console.ForegroundColor = ConsoleColor.DarkRed;

@@ -11,7 +11,7 @@ public class CycleCheck
             .Select(_ => new Random().NextDouble() * 40)//from 0 to 40
             .ToList();
         var delta = Enumerable.Range(0, 10)
-            .Select(_ => new Random().NextDouble() * 5)//from 0 to 40
+            .Select(_ => new Random().NextDouble() * 5)//from 0 to 5
             .ToList();
         var sensors = new List<Sensor>();
         var sensorsInfo = new List<Sensor>();
@@ -23,8 +23,8 @@ public class CycleCheck
             var sensor = new Sensor(i, Math.Round(rand), highLimit[i - 1], lowLimit[i - 1], delta[i - 1], DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
             sensors.Add(sensor);
 
-            var deltaXh = sensor.High - sensor.Val;
-            var deltaXl = sensor.Low - sensor.Val;
+            var deltaXh = sensor.High - sensor.Value;
+            var deltaXl = sensor.Low - sensor.Value;
 
             //в рамках дельти
             if (deltaXh < 0 || deltaXl > 0)
@@ -32,7 +32,7 @@ public class CycleCheck
                 sensorsInfo.Insert(j, sensor);
                 j++;
                 //За рамки дельти
-                if (sensor.Val > sensor.High + sensor.Delta || sensor.Val < sensor.Low - sensor.Delta)
+                if (sensor.Value > sensor.High + sensor.Delta || sensor.Value < sensor.Low - sensor.Delta)
                 {
                     var defaultColor = Console.ForegroundColor;
                     Console.ForegroundColor = ConsoleColor.DarkRed;
