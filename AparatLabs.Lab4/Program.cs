@@ -4,6 +4,7 @@ using Spectre.Console;
 using System.Text;
 namespace AparatLabs.Lab4;
 
+
 public static class CalculationUtils
 {
     public static double CalcCoefficientL(double q1, double q2, double q3, double q4)
@@ -67,6 +68,7 @@ public static class CalculationUtils
         return new double[] { q1 - xs[0], q2 - xs[1], q3 - xs[2], q4 + xs[3] };
     }
 }
+
 public static class Program
 {
     public static void Main()
@@ -149,36 +151,37 @@ public static class Program
 
 
             var table = new Table();
-            table.AddColumn("Step");
-            table.AddColumn("Result");
+            table.AddColumn("Крок");
+            table.AddColumn("Текст");
 
-            table.AddRow("1", $"l: {coefficientL:0.0000}");
+            table.AddRow("1", "Визначаємо похибку l виконання рівняння зв'язку між виміряними параметрами");
+            table.AddRow("", $"l: {coefficientL:0.0000}");
             table.AddEmptyRow();
-            table.AddRow("2", "Check condition:");
-            table.AddRow("", $"l > l*");
+            table.AddRow("2", "Перевірка умови:");
+            table.AddRow("", "l > l*");
             table.AddRow("", $"{l:0.0000} > {coefficientL:0.0000}");
             if (isCorrect)
             {
-                table.AddRow("", "Everything is fine");
+                table.AddRow("", "Все в порядку");
             }
             else
             {
-                table.AddRow("", "Отже, серед результатів вимірювання x̃i є не достовірні.");
+                table.AddRow("", "Отже, серед результатів вимірювання x̃i є недостовірні.");
                 table.AddEmptyRow();
-                table.AddRow("3", "Запишемо лінеаризовану математичну модель процесу, для якої знайдемо числові значення коефіцієнтів");
+                table.AddRow("3", "Записуємо лінеаризовану математичну модель процесу, для якої знаходимо числові значення коефіцієнтів");
                 table.AddRow("", $"A1 = {aCoefficients.a1:0.0000}");
                 table.AddRow("", $"A2 = {aCoefficients.a2:0.0000}");
                 table.AddRow("", $"A3 = {aCoefficients.a3:0.0000}");
                 table.AddRow("", $"A4 = {aCoefficients.a4:0.0000}");
                 table.AddEmptyRow();
-                table.AddRow("4", "Запишемо систему рівнянь для чого розрахуємо спочатку вагові коефіцієнти р");
+                table.AddRow("4", "Записуємо систему рівнянь, для чого розраховуємо спочатку вагові коефіцієнти р");
                 table.AddRow("", $"K = {pCoefficients.k:0.0000}");
                 table.AddRow("", $"P1 = {pCoefficients.p1:0.0000}");
                 table.AddRow("", $"P2 = {pCoefficients.p2:0.0000}");
                 table.AddRow("", $"P3 = {pCoefficients.p3:0.0000}");
                 table.AddRow("", $"P4 = {pCoefficients.p4:0.0000}");
                 table.AddEmptyRow();
-                table.AddRow("5", "Результат рішення системи рівнянь");
+                table.AddRow("5", "Результат розв'язання системи рівнянь");
                 table.AddRow("", $"deltaQ1 = {solvedSystem[0]:0.0000}");
                 table.AddRow("", $"deltaQ2 = {solvedSystem[1]:0.0000}");
                 table.AddRow("", $"deltaQ3 = {solvedSystem[2]:0.0000}");
@@ -198,13 +201,13 @@ public static class Program
                     }
                 }
                 table.AddEmptyRow();
-                table.AddRow("7", " За формулою (4.17) розраховуємо скориговані оцінки значень вимірюваних величин");
+                table.AddRow("7", "За формулою (4.17) розраховуємо скориговані оцінки значень вимірюваних величин");
                 table.AddRow("", $"Q1 = {refactoredValues[0]:0.0000}");
                 table.AddRow("", $"Q2 = {refactoredValues[1]:0.0000}");
                 table.AddRow("", $"Q3 = {refactoredValues[2]:0.0000}");
                 table.AddRow("", $"Q4 = {refactoredValues[3]:0.0000}");
                 table.AddEmptyRow();
-                table.AddRow("8", "З урахуванням скоригованих значень перевіримо знову виконання умови");
+                table.AddRow("8", "З урахуванням скоригованих значень перевіряємо виконання умови знову");
                 table.AddRow("", sumRefactored <= l ? "Умова не виконується" : "Умова виконується");
             }
 
