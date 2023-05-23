@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AparatLabs.Lab3", "AparatLa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AparatLabs.Lab4", "AparatLabs.Lab4\AparatLabs.Lab4.csproj", "{36F419B6-F039-4C26-9B50-EE3C6EF508A3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AparatLabs.Lab5", "AparatLabs.Lab5\AparatLabs.Lab5.csproj", "{CCD18BFA-D15B-45CE-AFCF-C8FCBE2A38A2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{36F419B6-F039-4C26-9B50-EE3C6EF508A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{36F419B6-F039-4C26-9B50-EE3C6EF508A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{36F419B6-F039-4C26-9B50-EE3C6EF508A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCD18BFA-D15B-45CE-AFCF-C8FCBE2A38A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCD18BFA-D15B-45CE-AFCF-C8FCBE2A38A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCD18BFA-D15B-45CE-AFCF-C8FCBE2A38A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCD18BFA-D15B-45CE-AFCF-C8FCBE2A38A2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
