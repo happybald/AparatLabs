@@ -11,7 +11,7 @@ namespace AparatLabs.Lab2
             const double qxmax = 4.0;
             const double t0Temp = 2;
             const double dtemp = 44;
-            const double t0Press = 0.2;
+            const double t0Press = 0.1;
             const double dpress = 24;
 
             double[] qhValues = GenerateByValue(qh, 5);

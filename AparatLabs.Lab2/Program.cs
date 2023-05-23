@@ -4,7 +4,7 @@ namespace AparatLabs.Lab2;
 
 public class Program
 {
-    public static async Task Main(string[] args)
+    public async static Task Main(string[] args)
     {
         Console.OutputEncoding = System.Text.Encoding.UTF8;
         Task1.Run();
